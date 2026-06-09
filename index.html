@@ -1,0 +1,825 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Domina Habermas | Repaso definitivo</title>
+  <meta name="description" content="Guía de estudio basada únicamente en La concepción de espacio público antes y después del cambio de paradigma.">
+  <style>
+    :root {
+      --bg:#080b16; --card:#111827; --card2:#172036; --ink:#f8fafc; --muted:#cbd5e1;
+      --blue:#38bdf8; --cyan:#67e8f9; --violet:#c084fc; --pink:#f0abfc; --green:#86efac;
+      --yellow:#fde68a; --red:#fca5a5; --line:rgba(255,255,255,.12); --shadow:0 22px 70px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--ink); background:
+        radial-gradient(circle at 20% 10%, rgba(56,189,248,.24), transparent 32%),
+        radial-gradient(circle at 80% 0%, rgba(192,132,252,.23), transparent 35%),
+        radial-gradient(circle at 60% 80%, rgba(134,239,172,.10), transparent 30%),
+        var(--bg);
+      line-height:1.65;
+    }
+    a{color:var(--cyan);text-decoration:none}
+    .wrap{max-width:1180px;margin:0 auto;padding:24px}
+    .topbar{
+      position:sticky; top:0; z-index:20; backdrop-filter:blur(18px);
+      background:rgba(8,11,22,.74); border-bottom:1px solid var(--line);
+    }
+    .nav{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .brand{font-weight:900;letter-spacing:.2px}
+    .links{display:flex;gap:8px;flex-wrap:wrap}
+    .links a,.pill,.btn{
+      border:1px solid var(--line); border-radius:999px; padding:9px 13px;
+      background:rgba(255,255,255,.06); color:var(--ink); font-weight:700; font-size:.92rem;
+    }
+    .hero{padding:64px 0 34px}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:stretch}
+    .hero-card,.card,.question,.answer-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.045));
+      border:1px solid var(--line); border-radius:28px; padding:28px; box-shadow:var(--shadow);
+    }
+    h1{font-size:clamp(2.4rem,6vw,5.7rem);line-height:.95;margin:0 0 18px;letter-spacing:-.06em}
+    h2{font-size:clamp(1.65rem,3vw,2.7rem);line-height:1.05;margin:0 0 16px;letter-spacing:-.03em}
+    h3{line-height:1.18;margin:0 0 12px}
+    p{margin:0 0 14px}
+    .lead{font-size:1.18rem;color:var(--muted);max-width:850px}
+    .accent{background:linear-gradient(90deg,var(--cyan),var(--violet),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .tag{display:inline-block;background:rgba(103,232,249,.12);border:1px solid rgba(103,232,249,.34);color:#cffafe;border-radius:999px;padding:7px 12px;font-weight:800;margin-bottom:12px}
+    .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:15px}
+    .stat{background:rgba(255,255,255,.065);border:1px solid var(--line);border-radius:18px;padding:16px}
+    .stat b{font-size:2rem;display:block;color:var(--green)}
+    section{padding:34px 0}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .col-4{grid-column:span 4} .col-6{grid-column:span 6} .col-8{grid-column:span 8} .col-12{grid-column:span 12}
+    .mini{background:rgba(255,255,255,.055);border:1px solid var(--line);border-radius:22px;padding:20px}
+    .mini b{color:#e0f2fe}
+    .numbered{counter-reset:item;display:grid;gap:12px}
+    .numbered div{counter-increment:item;padding:16px 16px 16px 58px;border-radius:18px;background:rgba(255,255,255,.055);border:1px solid var(--line);position:relative}
+    .numbered div:before{content:counter(item);position:absolute;left:16px;top:16px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--blue),var(--violet));font-weight:900}
+    .compare{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .good{border-color:rgba(134,239,172,.28);background:rgba(134,239,172,.08)}
+    .warn{border-color:rgba(253,230,138,.30);background:rgba(253,230,138,.08)}
+    .bad{border-color:rgba(252,165,165,.28);background:rgba(252,165,165,.08)}
+    .map{white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#050816;border-radius:20px;padding:20px;border:1px solid var(--line);overflow:auto}
+    .question{margin:18px 0}
+    .q-head{display:flex;gap:14px;align-items:flex-start}
+    .num{flex:0 0 auto;width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--cyan),var(--violet));display:grid;place-items:center;font-weight:950;color:#020617}
+    textarea{width:100%;min-height:140px;resize:vertical;margin:12px 0;background:rgba(2,6,23,.76);border:1px solid var(--line);border-radius:18px;color:var(--ink);padding:16px;font:inherit;outline:none}
+    textarea:focus{border-color:rgba(103,232,249,.8);box-shadow:0 0 0 4px rgba(56,189,248,.12)}
+    details{background:rgba(255,255,255,.055);border:1px solid var(--line);border-radius:16px;padding:13px 15px;margin:10px 0}
+    summary{cursor:pointer;font-weight:900;color:#dbeafe}
+    .modelo{border-color:rgba(134,239,172,.28);background:rgba(134,239,172,.07)}
+    .minimo{border-color:rgba(253,230,138,.28);background:rgba(253,230,138,.07)}
+    .rubrica{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:12px 0}
+    .rubrica label{display:block;padding:12px;border-radius:15px;border:1px solid var(--line);background:rgba(255,255,255,.045);cursor:pointer}
+    .rubrica input{margin-right:6px;accent-color:#38bdf8}
+    .rubrica small{color:var(--muted)}
+    .scorebox{position:sticky;bottom:16px;z-index:10;background:rgba(8,11,22,.88);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:24px;padding:16px;box-shadow:var(--shadow);display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    button{font:inherit}
+    .btn{cursor:pointer;background:linear-gradient(135deg,rgba(56,189,248,.22),rgba(192,132,252,.20));border-color:rgba(255,255,255,.18)}
+    .btn.primary{background:linear-gradient(135deg,var(--cyan),var(--violet));color:#020617;border:0}
+    .result{font-weight:950;font-size:1.1rem}
+    .result .grade{font-size:2.2rem;color:var(--green);display:inline-block;margin-left:6px}
+    .progress{height:12px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden;min-width:220px;flex:1}
+    .bar{height:100%;width:0%;background:linear-gradient(90deg,var(--cyan),var(--green));transition:.35s}
+    .print{margin-left:auto}
+    .answers{display:grid;gap:14px}
+    .footer{text-align:center;color:var(--muted);padding:44px 0}
+    @media (max-width:900px){
+      .hero-grid,.compare{grid-template-columns:1fr}
+      .col-4,.col-6,.col-8{grid-column:span 12}
+      .rubrica{grid-template-columns:1fr}
+      .hero{padding-top:34px}
+    }
+    @media print{
+      .topbar,.scorebox,.btn,textarea,.rubrica{display:none!important}
+      body{background:white;color:black}
+      .card,.question,.answer-card,.mini{box-shadow:none;border:1px solid #ddd;background:white;color:black}
+      details{display:block}
+      details > *{display:block}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap nav">
+      <div class="brand">📚 Domina Habermas</div>
+      <div class="links">
+        <a href="#resumen">Resumen</a>
+        <a href="#conceptos">Conceptos</a>
+        <a href="#preguntas">15 preguntas</a>
+        <a href="#respuestas">Respuestas finales</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <header class="hero">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <div class="tag">Guía basada únicamente en el artículo de Habermas</div>
+          <h1>Repaso definitivo para entender <span class="accent">espacio público</span>, racionalidad y desobediencia civil</h1>
+          <p class="lead">Esta página está pensada para estudiar de verdad: primero entiendes el texto, después respondes preguntas de desarrollo, comparas con respuestas modelo y calculas una nota chilena de 1,0 a 7,0.</p>
+          <p><span class="pill">🧠 Explicación profunda</span> <span class="pill">✍️ Desarrollo</span> <span class="pill">📊 Nota 1,0–7,0</span> <span class="pill">✅ Respuestas al final</span></p>
+        </div>
+        <aside class="hero-card">
+          <h2>Cómo usarlo para rendir bien</h2>
+          <div class="numbered">
+            <div>Lee el resumen completo sin saltarte las secciones.</div>
+            <div>Estudia los conceptos clave y el mapa mental.</div>
+            <div>Responde las 15 preguntas antes de mirar la pauta.</div>
+            <div>Corrige con honestidad usando la rúbrica.</div>
+            <div>Repite solo las preguntas bajo 3 puntos.</div>
+          </div>
+          <div class="stats">
+            <div class="stat"><b>15</b> preguntas de desarrollo</div>
+            <div class="stat"><b>60</b> puntos totales</div>
+            <div class="stat"><b>1,0</b> mínimo</div>
+            <div class="stat"><b>7,0</b> máximo</div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section id="resumen">
+      <div class="card">
+        <div class="tag">Resumen profundo</div>
+        <h2>La idea central, sin perder el nivel académico</h2>
+        <p>El artículo analiza cómo cambia el concepto de <b>espacio público</b> en la obra de Jürgen Habermas. Su punto de partida es que este concepto es central para pensar la democracia moderna, la racionalidad y las posibilidades de emancipación social. La autora distingue dos grandes momentos: el <b>primer Habermas</b>, vinculado al paradigma crítico y al análisis histórico de la publicidad burguesa, y el <b>segundo Habermas</b>, ligado al paradigma comunicativo, la acción comunicativa, el mundo de la vida, la sociedad civil y la desobediencia civil.</p>
+        <p>La tesis de fondo es que Habermas no abandona la crítica social: la reconstruye desde la comunicación. La pregunta ya no es solo cómo el poder domina, sino cómo los ciudadanos pueden formar opinión, discutir públicamente, generar legitimidad y presionar al sistema político.</p>
+      </div>
+
+      <div class="grid" style="margin-top:16px">
+        <div class="mini col-6">
+          <h3>1. Primer Habermas: publicidad burguesa</h3>
+          <p>En <i>La transformación estructural de la vida pública</i>, Habermas estudia el surgimiento del espacio público burgués. Este se entiende como el ámbito donde personas privadas se reúnen como público para discutir asuntos comunes. Su valor político está en que permite someter el poder a crítica racional.</p>
+        </div>
+        <div class="mini col-6">
+          <h3>2. Publicidad no significa “publicidad comercial”</h3>
+          <p>En este texto, publicidad quiere decir <b>hacer público</b>. Se relaciona con la posibilidad de que los asuntos comunes sean discutidos por ciudadanos mediante argumentos. Por eso publicidad y racionalidad están profundamente conectadas.</p>
+        </div>
+        <div class="mini col-6">
+          <h3>3. Deliberación, no simple suma de intereses</h3>
+          <p>Para Habermas, lo importante en la deliberación no es que cada grupo imponga su interés, sino que esos intereses se discutan públicamente. La política democrática debe racionalizarse mediante procedimientos de debate, no solo mediante votaciones o negociaciones de élites.</p>
+        </div>
+        <div class="mini col-6">
+          <h3>4. La caída de la publicidad burguesa</h3>
+          <p>La esfera pública pierde su impulso crítico cuando queda atravesada por propaganda, intereses privados, medios masivos, competencia partidaria y expansión estatal. La ciudadanía queda reducida muchas veces a espectadora o aclamadora, no a participante activa.</p>
+        </div>
+        <div class="mini col-6">
+          <h3>5. Refeudalización</h3>
+          <p>La refeudalización describe la transformación de la política en espectáculo. La notoriedad pública deja de servir para criticar al poder y pasa a representar prestigio, imagen y autoridad. El público observa y aclama, pero no delibera realmente.</p>
+        </div>
+        <div class="mini col-6">
+          <h3>6. Críticas al modelo burgués</h3>
+          <p>El artículo muestra críticas importantes: Habermas habría privilegiado la esfera pública burguesa, invisibilizando otros públicos populares; también se cuestiona la exclusión de mujeres y la mirada demasiado negativa del papel de los medios de comunicación.</p>
+        </div>
+        <div class="mini col-6">
+          <h3>7. Cambio de paradigma</h3>
+          <p>Habermas pasa del paradigma del trabajo al paradigma de la comunicación. Ya no piensa la emancipación solo desde la producción o el sujeto revolucionario, sino desde la capacidad de los hablantes para entenderse, argumentar y construir consensos racionales.</p>
+        </div>
+        <div class="mini col-6">
+          <h3>8. Racionalidad dual</h3>
+          <p>Habermas no abandona la crítica a la racionalidad instrumental. La complementa con la racionalidad comunicativa. La primera se orienta al control y la eficiencia; la segunda, al entendimiento, la argumentación y el consenso.</p>
+        </div>
+        <div class="mini col-6">
+          <h3>9. Mundo de la vida</h3>
+          <p>El mundo de la vida es el ámbito de la cultura, el lenguaje, la socialización, la familia, la escuela, las relaciones cotidianas, los valores y el entendimiento intersubjetivo. Allí se produce sentido y se forman identidades.</p>
+        </div>
+        <div class="mini col-6">
+          <h3>10. Sistema</h3>
+          <p>El sistema está compuesto por mecanismos como dinero, poder, mercado, burocracia, ciencia, técnica y administración. No funciona principalmente mediante diálogo, sino mediante medios no verbales de coordinación.</p>
+        </div>
+        <div class="mini col-6">
+          <h3>11. Colonización del mundo de la vida</h3>
+          <p>La colonización ocurre cuando el sistema invade el mundo de la vida. El dinero y el poder sustituyen la comunicación; las relaciones se monetarizan y las decisiones se burocratizan. Esta es una patología central de la modernidad.</p>
+        </div>
+        <div class="mini col-6">
+          <h3>12. Facticidad y validez</h3>
+          <p>En el segundo Habermas, el espacio público se redefine como una estructura comunicativa enraizada en el mundo de la vida. Funciona como caja de resonancia para detectar, tematizar y transmitir problemas al sistema político.</p>
+        </div>
+        <div class="mini col-6">
+          <h3>13. Opinión pública</h3>
+          <p>La opinión pública tiene calidad política cuando se forma mediante procesos discursivos, controversias públicas y reglas compartidas de comunicación. No gobierna directamente, pero puede influir en elecciones, gobiernos, tribunales y parlamentos.</p>
+        </div>
+        <div class="mini col-6">
+          <h3>14. Sociedad civil</h3>
+          <p>La sociedad civil reúne asociaciones, movimientos y organizaciones que recogen problemas vividos privadamente y los llevan al espacio público. Su poder es influencia, no gobierno directo. Para incidir, necesita llegar a instituciones democráticas.</p>
+        </div>
+        <div class="mini col-6">
+          <h3>15. Desobediencia civil</h3>
+          <p>La desobediencia civil es un medio extraordinario de la sociedad civil en momentos de crisis. Apela a la legitimidad democrática, actualiza contenidos normativos del Estado de derecho y presiona al sistema político frente a su inercia.</p>
+        </div>
+        <div class="mini col-6">
+          <h3>16. Conclusión crítica</h3>
+          <p>El artículo valora el potencial emancipatorio de Habermas, pero deja dudas: ¿basta la comunicación racional para enfrentar desigualdades reales? ¿El mundo de la vida solo emancipa o también reproduce jerarquías internas? Esa es la tensión final del texto.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="conceptos">
+      <div class="card">
+        <div class="tag">Conceptos clave</div>
+        <h2>Glosario inteligente para no confundirse</h2>
+        <div class="grid">
+          <div class="mini col-4"><b>Espacio público</b><p>Red de comunicación donde los problemas comunes se hacen visibles, discutibles y políticamente relevantes.</p></div>
+          <div class="mini col-4"><b>Publicidad</b><p>Acto de hacer público un asunto para someterlo a discusión racional. No equivale a propaganda comercial.</p></div>
+          <div class="mini col-4"><b>Publicidad burguesa</b><p>Forma histórica de esfera pública moderna basada en personas privadas que deliberan como público.</p></div>
+          <div class="mini col-4"><b>Racionalidad reflexiva</b><p>Razón discursiva, intersubjetiva y procesual; se construye mediante procedimientos compartidos de discusión.</p></div>
+          <div class="mini col-4"><b>Racionalidad instrumental</b><p>Forma de razón orientada al control, la eficiencia y el cálculo de medios para fines.</p></div>
+          <div class="mini col-4"><b>Racionalidad comunicativa</b><p>Razón orientada al entendimiento mediante argumentos, diálogo y posibilidad de consenso.</p></div>
+          <div class="mini col-4"><b>Acción comunicativa</b><p>Interacción donde los sujetos buscan comprenderse y coordinarse mediante lenguaje, no mediante fuerza o manipulación.</p></div>
+          <div class="mini col-4"><b>Mundo de la vida</b><p>Base cultural, simbólica y cotidiana de la sociedad: lenguaje, familia, escuela, valores, socialización y sentido.</p></div>
+          <div class="mini col-4"><b>Sistema</b><p>Ámbito coordinado por dinero, poder, mercado, burocracia y administración.</p></div>
+          <div class="mini col-4"><b>Colonización</b><p>Invasión del sistema sobre el mundo de la vida; reemplazo del diálogo por dinero, poder o burocracia.</p></div>
+          <div class="mini col-4"><b>Opinión pública</b><p>Conjunto de posturas que se forman en procesos públicos de comunicación sobre temas políticamente relevantes.</p></div>
+          <div class="mini col-4"><b>Sociedad civil</b><p>Trama de asociaciones y movimientos que recoge problemas de la vida privada y los lleva al espacio público.</p></div>
+          <div class="mini col-4"><b>Política deliberativa</b><p>Modelo donde la legitimidad democrática depende de procesos de deliberación pública y formación racional de voluntad.</p></div>
+          <div class="mini col-4"><b>Refeudalización</b><p>Pérdida de la función crítica de la publicidad; la política se vuelve espectáculo y búsqueda de aclamación.</p></div>
+          <div class="mini col-4"><b>Desobediencia civil</b><p>Acción extraordinaria que presiona al sistema político apelando a principios democráticos y al Estado de derecho.</p></div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:16px">
+        <h2>Mapa mental del artículo</h2>
+        <div class="map">HABERMAS Y EL ESPACIO PÚBLICO
+│
+├─ 1. Primer Habermas
+│  ├─ Publicidad burguesa
+│  ├─ Personas privadas reunidas como público
+│  ├─ Deliberación racional
+│  └─ Función crítica frente al poder
+│
+├─ 2. Crisis de la esfera pública
+│  ├─ Propaganda comercial
+│  ├─ Medios masivos
+│  ├─ Competencia partidaria
+│  ├─ Intereses privados
+│  └─ Refeudalización: política como espectáculo
+│
+├─ 3. Críticas al modelo
+│  ├─ Invisibiliza públicos no burgueses
+│  ├─ Margina mujeres y sectores excluidos
+│  └─ Lee los medios de forma demasiado negativa
+│
+├─ 4. Cambio de paradigma
+│  ├─ Del trabajo a la comunicación
+│  ├─ Racionalidad instrumental
+│  └─ Racionalidad comunicativa
+│
+├─ 5. Sociedad moderna
+│  ├─ Sistema: dinero, poder, burocracia
+│  └─ Mundo de la vida: lenguaje, cultura, socialización
+│
+├─ 6. Problema central
+│  └─ Colonización del mundo de la vida por el sistema
+│
+├─ 7. Segundo Habermas
+│  ├─ Espacio público como caja de resonancia
+│  ├─ Opinión pública como influencia
+│  ├─ Sociedad civil como puente
+│  └─ Política deliberativa
+│
+└─ 8. Momento radical
+   └─ Desobediencia civil como presión democrática frente a la inercia institucional</div>
+      </div>
+
+      <div class="card" style="margin-top:16px">
+        <h2>Errores típicos que bajan nota</h2>
+        <div class="grid">
+          <div class="mini bad col-6"><b>Error 1:</b><p>Creer que “publicidad” significa publicidad comercial. En el texto significa hacer público y someter a discusión.</p></div>
+          <div class="mini bad col-6"><b>Error 2:</b><p>Confundir mundo de la vida con sistema. El primero se organiza por comunicación y sentido; el segundo por dinero, poder y burocracia.</p></div>
+          <div class="mini bad col-6"><b>Error 3:</b><p>Decir que la sociedad civil gobierna. En Habermas, la sociedad civil influye y presiona, pero no reemplaza al Estado.</p></div>
+          <div class="mini bad col-6"><b>Error 4:</b><p>Presentar la desobediencia civil como simple desorden. En el artículo tiene valor democrático porque apela a la legitimidad del Estado de derecho.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="preguntas">
+      <div class="card">
+        <div class="tag">Evaluación de desarrollo</div>
+        <h2>15 preguntas para ensayar la prueba</h2>
+        <p>Responde primero. Después abre los elementos mínimos y la respuesta modelo. Finalmente marca tu puntaje: <b>0 a 4 puntos por pregunta</b>. Total: <b>60 puntos</b>. La nota se calcula con escala lineal chilena: <b>1,0 + (puntaje/60 × 6)</b>.</p>
+      </div>
+
+      
+    <article class="question" data-index="1">
+      <div class="q-head">
+        <span class="num">1</span>
+        <h3>Explique cuál es la tesis central del artículo sobre el concepto de espacio público en Habermas.</h3>
+      </div>
+      <textarea id="ans1" placeholder="Escribe tu respuesta de desarrollo aquí. Intenta responder primero sin mirar la pauta..."></textarea>
+      <details class="minimo">
+        <summary>Ver elementos mínimos para puntaje completo</summary>
+        <p>Debe señalar que el artículo estudia la centralidad del espacio público en Habermas y distingue dos momentos: el paradigma crítico y el paradigma comunicativo.</p>
+      </details>
+      <div class="rubrica">
+        <label><input type="radio" name="score1" value="0"> 0 pts<br><small>No respondí / fuera de tema</small></label>
+        <label><input type="radio" name="score1" value="1"> 1 pt<br><small>Idea muy débil</small></label>
+        <label><input type="radio" name="score1" value="2"> 2 pts<br><small>Respuesta básica</small></label>
+        <label><input type="radio" name="score1" value="3"> 3 pts<br><small>Buena respuesta</small></label>
+        <label><input type="radio" name="score1" value="4"> 4 pts<br><small>Excelente desarrollo</small></label>
+      </div>
+      <details class="modelo">
+        <summary>Ver respuesta modelo</summary>
+        <p>La tesis central es que el concepto de espacio público permite comprender la evolución del pensamiento de Habermas. En un primer momento, asociado al paradigma crítico, el espacio público aparece vinculado a la publicidad burguesa, a la deliberación racional y a la crítica del poder. Sin embargo, ese modelo entra en crisis porque la esfera pública se debilita, se despolitiza y queda atravesada por intereses privados, medios masivos, propaganda y relaciones de poder. En un segundo momento, ligado al paradigma comunicativo, Habermas redefine el espacio público como una red de comunicación enraizada en el mundo de la vida, capaz de transformar problemas sociales en temas políticos y de influir sobre el sistema político mediante la opinión pública, la sociedad civil y, en situaciones de crisis, la desobediencia civil.</p>
+      </details>
+    </article>
+    
+    <article class="question" data-index="2">
+      <div class="q-head">
+        <span class="num">2</span>
+        <h3>Defina el espacio público burgués según el primer Habermas y explique por qué era importante.</h3>
+      </div>
+      <textarea id="ans2" placeholder="Escribe tu respuesta de desarrollo aquí. Intenta responder primero sin mirar la pauta..."></textarea>
+      <details class="minimo">
+        <summary>Ver elementos mínimos para puntaje completo</summary>
+        <p>Debe mencionar que personas privadas se reúnen como público para discutir asuntos comunes y que esta discusión da legitimidad al modelo liberal democrático.</p>
+      </details>
+      <div class="rubrica">
+        <label><input type="radio" name="score2" value="0"> 0 pts<br><small>No respondí / fuera de tema</small></label>
+        <label><input type="radio" name="score2" value="1"> 1 pt<br><small>Idea muy débil</small></label>
+        <label><input type="radio" name="score2" value="2"> 2 pts<br><small>Respuesta básica</small></label>
+        <label><input type="radio" name="score2" value="3"> 3 pts<br><small>Buena respuesta</small></label>
+        <label><input type="radio" name="score2" value="4"> 4 pts<br><small>Excelente desarrollo</small></label>
+      </div>
+      <details class="modelo">
+        <summary>Ver respuesta modelo</summary>
+        <p>En el primer Habermas, el espacio público burgués es el ámbito donde las personas privadas se reúnen en calidad de público para discutir asuntos comunes. No se trata solamente de que cada individuo exprese su interés particular, sino de que esos intereses sean sometidos a discusión racional. Por eso el espacio público es importante: funciona como condición de posibilidad para una política más racional, porque permite que las decisiones públicas se sometan a crítica, deliberación y justificación. El artículo muestra que Habermas considera este espacio como núcleo político de la Modernidad, aunque también reconoce que su modelo liberal tenía límites históricos y sociales.</p>
+      </details>
+    </article>
+    
+    <article class="question" data-index="3">
+      <div class="q-head">
+        <span class="num">3</span>
+        <h3>Explique la relación entre publicidad, racionalidad y democracia en el primer Habermas.</h3>
+      </div>
+      <textarea id="ans3" placeholder="Escribe tu respuesta de desarrollo aquí. Intenta responder primero sin mirar la pauta..."></textarea>
+      <details class="minimo">
+        <summary>Ver elementos mínimos para puntaje completo</summary>
+        <p>Debe explicar que publicidad no es propaganda comercial, sino hacer público y discutir racionalmente; esto permite democratizar la política.</p>
+      </details>
+      <div class="rubrica">
+        <label><input type="radio" name="score3" value="0"> 0 pts<br><small>No respondí / fuera de tema</small></label>
+        <label><input type="radio" name="score3" value="1"> 1 pt<br><small>Idea muy débil</small></label>
+        <label><input type="radio" name="score3" value="2"> 2 pts<br><small>Respuesta básica</small></label>
+        <label><input type="radio" name="score3" value="3"> 3 pts<br><small>Buena respuesta</small></label>
+        <label><input type="radio" name="score3" value="4"> 4 pts<br><small>Excelente desarrollo</small></label>
+      </div>
+      <details class="modelo">
+        <summary>Ver respuesta modelo</summary>
+        <p>En el texto, publicidad significa hacer público aquello que concierne a todos. La publicidad se relaciona con la racionalidad porque permite que los asuntos comunes sean discutidos de manera argumentativa, intersubjetiva y reflexiva. A su vez, esa racionalidad pública se vincula con la democracia porque una sociedad democrática no debería basarse solo en decisiones administrativas o en acuerdos de élite, sino en procesos donde los ciudadanos puedan discutir, problematizar y formar opinión. Por eso la esfera pública tiene una función crítica: permite controlar, cuestionar y orientar el poder político.</p>
+      </details>
+    </article>
+    
+    <article class="question" data-index="4">
+      <div class="q-head">
+        <span class="num">4</span>
+        <h3>¿Qué significa la caída o transformación de la publicidad burguesa?</h3>
+      </div>
+      <textarea id="ans4" placeholder="Escribe tu respuesta de desarrollo aquí. Intenta responder primero sin mirar la pauta..."></textarea>
+      <details class="minimo">
+        <summary>Ver elementos mínimos para puntaje completo</summary>
+        <p>Debe explicar que la publicidad pierde su impulso crítico y la esfera pública se despolitiza por intereses privados, propaganda y Estado social.</p>
+      </details>
+      <div class="rubrica">
+        <label><input type="radio" name="score4" value="0"> 0 pts<br><small>No respondí / fuera de tema</small></label>
+        <label><input type="radio" name="score4" value="1"> 1 pt<br><small>Idea muy débil</small></label>
+        <label><input type="radio" name="score4" value="2"> 2 pts<br><small>Respuesta básica</small></label>
+        <label><input type="radio" name="score4" value="3"> 3 pts<br><small>Buena respuesta</small></label>
+        <label><input type="radio" name="score4" value="4"> 4 pts<br><small>Excelente desarrollo</small></label>
+      </div>
+      <details class="modelo">
+        <summary>Ver respuesta modelo</summary>
+        <p>La caída de la publicidad burguesa significa que el espacio público deja de funcionar como instancia crítica de deliberación racional. En vez de depender del consenso de personas que discuten públicamente, las decisiones empiezan a quedar mediadas por compromisos entre intereses privados, expansión estatal, propaganda comercial, competencia partidaria y comunicación masiva. Así, la esfera pública se vuelve menos autónoma, menos crítica y más manipulable. Para el artículo, esto revela una contradicción de la democracia liberal: formalmente existe participación, pero en la práctica muchas decisiones se toman sin incorporar sustantivamente los intereses ciudadanos.</p>
+      </details>
+    </article>
+    
+    <article class="question" data-index="5">
+      <div class="q-head">
+        <span class="num">5</span>
+        <h3>Explique el concepto de refeudalización de la esfera pública.</h3>
+      </div>
+      <textarea id="ans5" placeholder="Escribe tu respuesta de desarrollo aquí. Intenta responder primero sin mirar la pauta..."></textarea>
+      <details class="minimo">
+        <summary>Ver elementos mínimos para puntaje completo</summary>
+        <p>Debe decir que la política se vuelve espectáculo y la notoriedad pública deja de ser crítica para volverse representativa/aclamativa.</p>
+      </details>
+      <div class="rubrica">
+        <label><input type="radio" name="score5" value="0"> 0 pts<br><small>No respondí / fuera de tema</small></label>
+        <label><input type="radio" name="score5" value="1"> 1 pt<br><small>Idea muy débil</small></label>
+        <label><input type="radio" name="score5" value="2"> 2 pts<br><small>Respuesta básica</small></label>
+        <label><input type="radio" name="score5" value="3"> 3 pts<br><small>Buena respuesta</small></label>
+        <label><input type="radio" name="score5" value="4"> 4 pts<br><small>Excelente desarrollo</small></label>
+      </div>
+      <details class="modelo">
+        <summary>Ver respuesta modelo</summary>
+        <p>La refeudalización de la esfera pública es el proceso mediante el cual la publicidad pierde su función crítica y se convierte en una forma de exhibición del poder. En lugar de un público que debate racionalmente, aparece una ciudadanía reducida a espectadora, llamada a aclamar líderes, partidos o figuras públicas. La política se vuelve espectáculo y la notoriedad pública ya no sirve para controlar críticamente al poder, sino para representar prestigio, imagen y autoridad. El término recuerda al mundo feudal porque el poder busca mostrarse ante el público para obtener reconocimiento, no para someterse a deliberación democrática.</p>
+      </details>
+    </article>
+    
+    <article class="question" data-index="6">
+      <div class="q-head">
+        <span class="num">6</span>
+        <h3>Desarrolle las críticas que el artículo recoge contra el modelo de esfera pública burguesa de Habermas.</h3>
+      </div>
+      <textarea id="ans6" placeholder="Escribe tu respuesta de desarrollo aquí. Intenta responder primero sin mirar la pauta..."></textarea>
+      <details class="minimo">
+        <summary>Ver elementos mínimos para puntaje completo</summary>
+        <p>Debe mencionar al menos dos críticas: invisibilización de públicos no burgueses, exclusión de mujeres, visión demasiado negativa/unidireccional de medios.</p>
+      </details>
+      <div class="rubrica">
+        <label><input type="radio" name="score6" value="0"> 0 pts<br><small>No respondí / fuera de tema</small></label>
+        <label><input type="radio" name="score6" value="1"> 1 pt<br><small>Idea muy débil</small></label>
+        <label><input type="radio" name="score6" value="2"> 2 pts<br><small>Respuesta básica</small></label>
+        <label><input type="radio" name="score6" value="3"> 3 pts<br><small>Buena respuesta</small></label>
+        <label><input type="radio" name="score6" value="4"> 4 pts<br><small>Excelente desarrollo</small></label>
+      </div>
+      <details class="modelo">
+        <summary>Ver respuesta modelo</summary>
+        <p>El artículo recoge críticas importantes al modelo de esfera pública burguesa. Una crítica es que Habermas habría centrado demasiado su análisis en la sociabilidad burguesa, dejando en segundo plano otras formas de actividad pública, como movimientos populares, sectores plebeyos, corrientes socialistas o expresiones políticas no insertas en la cultura burguesa. Otra crítica apunta a la exclusión de las mujeres: la esfera pública liberal no fue realmente universal, porque se construyó separando lo público de lo privado y marginando a quienes quedaban asociados al ámbito doméstico. También se critica su visión de los medios, porque Habermas tiende a verlos como causa de pérdida del diálogo cara a cara, mientras autores como Thompson señalan que los medios también crean nuevas formas de intercambio y difusión pública. En conjunto, estas críticas muestran que el ideal de igualdad deliberativa era más limitado de lo que parecía.</p>
+      </details>
+    </article>
+    
+    <article class="question" data-index="7">
+      <div class="q-head">
+        <span class="num">7</span>
+        <h3>Explique el cambio de paradigma en Habermas: del trabajo a la comunicación.</h3>
+      </div>
+      <textarea id="ans7" placeholder="Escribe tu respuesta de desarrollo aquí. Intenta responder primero sin mirar la pauta..."></textarea>
+      <details class="minimo">
+        <summary>Ver elementos mínimos para puntaje completo</summary>
+        <p>Debe explicar que abandona el paradigma del trabajo de la teoría crítica clásica y desarrolla el paradigma comunicativo, sin eliminar la crítica a la racionalidad instrumental.</p>
+      </details>
+      <div class="rubrica">
+        <label><input type="radio" name="score7" value="0"> 0 pts<br><small>No respondí / fuera de tema</small></label>
+        <label><input type="radio" name="score7" value="1"> 1 pt<br><small>Idea muy débil</small></label>
+        <label><input type="radio" name="score7" value="2"> 2 pts<br><small>Respuesta básica</small></label>
+        <label><input type="radio" name="score7" value="3"> 3 pts<br><small>Buena respuesta</small></label>
+        <label><input type="radio" name="score7" value="4"> 4 pts<br><small>Excelente desarrollo</small></label>
+      </div>
+      <details class="modelo">
+        <summary>Ver respuesta modelo</summary>
+        <p>El cambio de paradigma consiste en que Habermas abandona el paradigma del trabajo, propio de la teoría crítica clásica, y desplaza el centro de su teoría hacia la comunicación. Esto no significa que renuncie a la crítica social ni que abandone la idea de racionalidad, sino que busca una alternativa a la racionalidad instrumental. En lugar de pensar la emancipación solo desde el trabajo o desde un sujeto revolucionario, Habermas la piensa desde la acción comunicativa, es decir, desde la capacidad de los sujetos para entenderse, argumentar, resolver desacuerdos y construir consensos racionales. Este giro permite imaginar un camino menos pesimista para la transformación social.</p>
+      </details>
+    </article>
+    
+    <article class="question" data-index="8">
+      <div class="q-head">
+        <span class="num">8</span>
+        <h3>Diferencie racionalidad instrumental y racionalidad comunicativa.</h3>
+      </div>
+      <textarea id="ans8" placeholder="Escribe tu respuesta de desarrollo aquí. Intenta responder primero sin mirar la pauta..."></textarea>
+      <details class="minimo">
+        <summary>Ver elementos mínimos para puntaje completo</summary>
+        <p>Debe contrastar control/eficiencia/medios con entendimiento/diálogo/consenso.</p>
+      </details>
+      <div class="rubrica">
+        <label><input type="radio" name="score8" value="0"> 0 pts<br><small>No respondí / fuera de tema</small></label>
+        <label><input type="radio" name="score8" value="1"> 1 pt<br><small>Idea muy débil</small></label>
+        <label><input type="radio" name="score8" value="2"> 2 pts<br><small>Respuesta básica</small></label>
+        <label><input type="radio" name="score8" value="3"> 3 pts<br><small>Buena respuesta</small></label>
+        <label><input type="radio" name="score8" value="4"> 4 pts<br><small>Excelente desarrollo</small></label>
+      </div>
+      <details class="modelo">
+        <summary>Ver respuesta modelo</summary>
+        <p>La racionalidad instrumental es una forma de razón orientada al control, la eficiencia y el cálculo de medios para alcanzar fines. En el artículo aparece asociada al sistema, al dinero, al poder, a la burocracia, al mercado y a la administración. En cambio, la racionalidad comunicativa se orienta al entendimiento entre sujetos capaces de hablar, escuchar, argumentar y llegar a acuerdos. No busca simplemente vencer al otro ni manipularlo, sino construir consenso mediante razones. Esta diferencia es clave porque Habermas ve en la racionalidad comunicativa una posibilidad emancipatoria frente al dominio de la racionalidad instrumental en las sociedades modernas.</p>
+      </details>
+    </article>
+    
+    <article class="question" data-index="9">
+      <div class="q-head">
+        <span class="num">9</span>
+        <h3>Explique la diferencia entre mundo de la vida y sistema.</h3>
+      </div>
+      <textarea id="ans9" placeholder="Escribe tu respuesta de desarrollo aquí. Intenta responder primero sin mirar la pauta..."></textarea>
+      <details class="minimo">
+        <summary>Ver elementos mínimos para puntaje completo</summary>
+        <p>Debe definir mundo de la vida como cultura, lenguaje, socialización y relaciones cotidianas; sistema como dinero, poder, mercado y burocracia.</p>
+      </details>
+      <div class="rubrica">
+        <label><input type="radio" name="score9" value="0"> 0 pts<br><small>No respondí / fuera de tema</small></label>
+        <label><input type="radio" name="score9" value="1"> 1 pt<br><small>Idea muy débil</small></label>
+        <label><input type="radio" name="score9" value="2"> 2 pts<br><small>Respuesta básica</small></label>
+        <label><input type="radio" name="score9" value="3"> 3 pts<br><small>Buena respuesta</small></label>
+        <label><input type="radio" name="score9" value="4"> 4 pts<br><small>Excelente desarrollo</small></label>
+      </div>
+      <details class="modelo">
+        <summary>Ver respuesta modelo</summary>
+        <p>El mundo de la vida es el espacio de las relaciones cotidianas, la cultura, el lenguaje, la socialización, la familia, la escuela, los valores y el entendimiento intersubjetivo. Es donde las personas forman identidad, sentido y vínculos comunicativos. El sistema, en cambio, está compuesto por mecanismos impersonales como dinero, poder, mercado, burocracia, ciencia, técnica y administración. Mientras el mundo de la vida funciona mediante comunicación y sentido compartido, el sistema funciona mediante medios no verbales de coordinación, como el dinero y el poder. La tensión aparece cuando el sistema invade espacios que deberían organizarse mediante comunicación.</p>
+      </details>
+    </article>
+    
+    <article class="question" data-index="10">
+      <div class="q-head">
+        <span class="num">10</span>
+        <h3>¿Qué significa la colonización del mundo de la vida por el sistema?</h3>
+      </div>
+      <textarea id="ans10" placeholder="Escribe tu respuesta de desarrollo aquí. Intenta responder primero sin mirar la pauta..."></textarea>
+      <details class="minimo">
+        <summary>Ver elementos mínimos para puntaje completo</summary>
+        <p>Debe explicar que los imperativos sistémicos invaden relaciones humanas y sustituyen comunicación por dinero, poder o burocracia.</p>
+      </details>
+      <div class="rubrica">
+        <label><input type="radio" name="score10" value="0"> 0 pts<br><small>No respondí / fuera de tema</small></label>
+        <label><input type="radio" name="score10" value="1"> 1 pt<br><small>Idea muy débil</small></label>
+        <label><input type="radio" name="score10" value="2"> 2 pts<br><small>Respuesta básica</small></label>
+        <label><input type="radio" name="score10" value="3"> 3 pts<br><small>Buena respuesta</small></label>
+        <label><input type="radio" name="score10" value="4"> 4 pts<br><small>Excelente desarrollo</small></label>
+      </div>
+      <details class="modelo">
+        <summary>Ver respuesta modelo</summary>
+        <p>La colonización del mundo de la vida ocurre cuando los imperativos del sistema, especialmente dinero y poder, invaden ámbitos de la vida cotidiana que deberían estar orientados por la comunicación y el entendimiento. Esto produce una sustitución de la acción comunicativa por mecanismos instrumentales: las relaciones humanas se monetarizan, las decisiones se burocratizan y la vida social se organiza cada vez más por lógicas de control. Para el artículo, esta colonización es el diagnóstico central de Habermas sobre las patologías de la modernidad, porque restringe la comunicación, despolitiza a los ciudadanos y debilita la posibilidad de participación democrática sustantiva.</p>
+      </details>
+    </article>
+    
+    <article class="question" data-index="11">
+      <div class="q-head">
+        <span class="num">11</span>
+        <h3>Explique cómo redefine Habermas el espacio público en Facticidad y validez.</h3>
+      </div>
+      <textarea id="ans11" placeholder="Escribe tu respuesta de desarrollo aquí. Intenta responder primero sin mirar la pauta..."></textarea>
+      <details class="minimo">
+        <summary>Ver elementos mínimos para puntaje completo</summary>
+        <p>Debe decir que lo define como estructura comunicativa enraizada en el mundo de la vida, caja de resonancia y sistema de avisos.</p>
+      </details>
+      <div class="rubrica">
+        <label><input type="radio" name="score11" value="0"> 0 pts<br><small>No respondí / fuera de tema</small></label>
+        <label><input type="radio" name="score11" value="1"> 1 pt<br><small>Idea muy débil</small></label>
+        <label><input type="radio" name="score11" value="2"> 2 pts<br><small>Respuesta básica</small></label>
+        <label><input type="radio" name="score11" value="3"> 3 pts<br><small>Buena respuesta</small></label>
+        <label><input type="radio" name="score11" value="4"> 4 pts<br><small>Excelente desarrollo</small></label>
+      </div>
+      <details class="modelo">
+        <summary>Ver respuesta modelo</summary>
+        <p>En Facticidad y validez, Habermas redefine el espacio público ya no como un simple espacio burgués de discusión cara a cara, sino como una estructura comunicativa enraizada en el mundo de la vida. El artículo destaca que funciona como una caja de resonancia para problemas que deben ser elaborados por el sistema político y como un sistema de avisos con sensores no especializados. Esto significa que el espacio público detecta problemas sociales, los tematiza, los vuelve discutibles y los transforma en opinión pública. No decide directamente como una institución estatal, pero puede influir en el sistema político mediante la formación de legitimidad.</p>
+      </details>
+    </article>
+    
+    <article class="question" data-index="12">
+      <div class="q-head">
+        <span class="num">12</span>
+        <h3>Analice el papel de la opinión pública en el segundo Habermas.</h3>
+      </div>
+      <textarea id="ans12" placeholder="Escribe tu respuesta de desarrollo aquí. Intenta responder primero sin mirar la pauta..."></textarea>
+      <details class="minimo">
+        <summary>Ver elementos mínimos para puntaje completo</summary>
+        <p>Debe explicar que la opinión pública se forma mediante controversias públicas, puede influir políticamente y su calidad depende del procedimiento discursivo.</p>
+      </details>
+      <div class="rubrica">
+        <label><input type="radio" name="score12" value="0"> 0 pts<br><small>No respondí / fuera de tema</small></label>
+        <label><input type="radio" name="score12" value="1"> 1 pt<br><small>Idea muy débil</small></label>
+        <label><input type="radio" name="score12" value="2"> 2 pts<br><small>Respuesta básica</small></label>
+        <label><input type="radio" name="score12" value="3"> 3 pts<br><small>Buena respuesta</small></label>
+        <label><input type="radio" name="score12" value="4"> 4 pts<br><small>Excelente desarrollo</small></label>
+      </div>
+      <details class="modelo">
+        <summary>Ver respuesta modelo</summary>
+        <p>En el segundo Habermas, la opinión pública cumple un papel político fundamental porque transforma comunicaciones dispersas en posturas colectivas sobre temas relevantes. Su importancia no está solo en que muchas personas opinen, sino en la forma en que esas opiniones se producen: deben surgir de prácticas de comunicación pública, controversias más o menos racionales y procesos discursivos. Su calidad depende de cuánto esté afectada por relaciones de poder que bloquean discusiones fecundas. La opinión pública no reemplaza al gobierno ni al parlamento, pero puede influir en elecciones, tribunales, gobiernos y parlamentos. Por eso posee un potencial político: puede suministrar o retirar legitimidad al poder institucional.</p>
+      </details>
+    </article>
+    
+    <article class="question" data-index="13">
+      <div class="q-head">
+        <span class="num">13</span>
+        <h3>Explique el papel de la sociedad civil y sus límites según el artículo.</h3>
+      </div>
+      <textarea id="ans13" placeholder="Escribe tu respuesta de desarrollo aquí. Intenta responder primero sin mirar la pauta..."></textarea>
+      <details class="minimo">
+        <summary>Ver elementos mínimos para puntaje completo</summary>
+        <p>Debe definir sociedad civil como trama asociativa que recoge problemas privados y los transmite al espacio público; límite: influye, pero no gobierna directamente.</p>
+      </details>
+      <div class="rubrica">
+        <label><input type="radio" name="score13" value="0"> 0 pts<br><small>No respondí / fuera de tema</small></label>
+        <label><input type="radio" name="score13" value="1"> 1 pt<br><small>Idea muy débil</small></label>
+        <label><input type="radio" name="score13" value="2"> 2 pts<br><small>Respuesta básica</small></label>
+        <label><input type="radio" name="score13" value="3"> 3 pts<br><small>Buena respuesta</small></label>
+        <label><input type="radio" name="score13" value="4"> 4 pts<br><small>Excelente desarrollo</small></label>
+      </div>
+      <details class="modelo">
+        <summary>Ver respuesta modelo</summary>
+        <p>La sociedad civil aparece como una trama de asociaciones, organizaciones y movimientos que surgen de manera más o menos espontánea desde la vida cotidiana. Su papel es recoger la resonancia que los problemas sociales generan en la vida privada y transmitirla al espacio de la opinión pública. Es decir, convierte experiencias individuales o sectoriales en temas de interés general. Sin embargo, el artículo también subraya sus límites: la sociedad civil puede influir, pero no ejercer poder político directamente; para que su influencia tenga efectos institucionales debe llegar a estructuras democráticas y adoptar formas autorizadas. Por eso no reemplaza al Estado, sino que presiona, orienta y legitima o deslegitima decisiones.</p>
+      </details>
+    </article>
+    
+    <article class="question" data-index="14">
+      <div class="q-head">
+        <span class="num">14</span>
+        <h3>Explique qué es la desobediencia civil en el segundo Habermas y por qué tiene valor democrático.</h3>
+      </div>
+      <textarea id="ans14" placeholder="Escribe tu respuesta de desarrollo aquí. Intenta responder primero sin mirar la pauta..."></textarea>
+      <details class="minimo">
+        <summary>Ver elementos mínimos para puntaje completo</summary>
+        <p>Debe presentarla como medio extraordinario de la sociedad civil en crisis para actualizar contenidos normativos del Estado democrático de derecho.</p>
+      </details>
+      <div class="rubrica">
+        <label><input type="radio" name="score14" value="0"> 0 pts<br><small>No respondí / fuera de tema</small></label>
+        <label><input type="radio" name="score14" value="1"> 1 pt<br><small>Idea muy débil</small></label>
+        <label><input type="radio" name="score14" value="2"> 2 pts<br><small>Respuesta básica</small></label>
+        <label><input type="radio" name="score14" value="3"> 3 pts<br><small>Buena respuesta</small></label>
+        <label><input type="radio" name="score14" value="4"> 4 pts<br><small>Excelente desarrollo</small></label>
+      </div>
+      <details class="modelo">
+        <summary>Ver respuesta modelo</summary>
+        <p>La desobediencia civil es presentada como una forma extraordinaria de acción política propia de la sociedad civil cuando se percibe una situación de crisis. No se entiende como simple desorden ni como rechazo absoluto a la democracia, sino como una apelación a la legitimidad democrática frente a la inercia del sistema político. Su valor está en que permite actualizar los contenidos normativos del Estado democrático de derecho en el espacio de la opinión pública. Mediante ella, la sociedad civil moviliza a la opinión pública, presiona al sistema político y refuerza el vínculo entre sociedad civil y sociedad política. En ese sentido, busca superar prácticamente la tensión entre facticidad y validez.</p>
+      </details>
+    </article>
+    
+    <article class="question" data-index="15">
+      <div class="q-head">
+        <span class="num">15</span>
+        <h3>Explique la conclusión crítica del artículo frente a Habermas.</h3>
+      </div>
+      <textarea id="ans15" placeholder="Escribe tu respuesta de desarrollo aquí. Intenta responder primero sin mirar la pauta..."></textarea>
+      <details class="minimo">
+        <summary>Ver elementos mínimos para puntaje completo</summary>
+        <p>Debe señalar que la autora valora el potencial emancipatorio, pero pregunta si basta la comunicación racional y si el mundo de la vida también reproduce dominaciones internas.</p>
+      </details>
+      <div class="rubrica">
+        <label><input type="radio" name="score15" value="0"> 0 pts<br><small>No respondí / fuera de tema</small></label>
+        <label><input type="radio" name="score15" value="1"> 1 pt<br><small>Idea muy débil</small></label>
+        <label><input type="radio" name="score15" value="2"> 2 pts<br><small>Respuesta básica</small></label>
+        <label><input type="radio" name="score15" value="3"> 3 pts<br><small>Buena respuesta</small></label>
+        <label><input type="radio" name="score15" value="4"> 4 pts<br><small>Excelente desarrollo</small></label>
+      </div>
+      <details class="modelo">
+        <summary>Ver respuesta modelo</summary>
+        <p>La conclusión crítica del artículo reconoce el valor emancipatorio de la propuesta habermasiana, especialmente su forma de pensar el espacio público, la sociedad civil, la opinión pública y la desobediencia civil como vías para presionar democráticamente al sistema político. Sin embargo, la autora deja abiertas preguntas importantes. Una de ellas es si la publicidad puede entenderse solo como un espacio de tematización racional de crisis o si también está atravesada por desigualdades más profundas. Otra pregunta es si el mundo de la vida debe verse únicamente como reserva de comunicación y emancipación, o si también produce jerarquías internas, exclusiones y formas de dominación vinculadas a condiciones subalternas. Por eso el artículo no rechaza a Habermas, pero sí exige complejizar su teoría.</p>
+      </details>
+    </article>
+    
+    <article class="question" data-index="16">
+      <div class="q-head">
+        <span class="num">16</span>
+        <h3>Construya una síntesis general del artículo relacionando espacio público, sistema, mundo de la vida, sociedad civil y desobediencia civil.</h3>
+      </div>
+      <textarea id="ans16" placeholder="Escribe tu respuesta de desarrollo aquí. Intenta responder primero sin mirar la pauta..."></textarea>
+      <details class="minimo">
+        <summary>Ver elementos mínimos para puntaje completo</summary>
+        <p>Debe articular todos los conceptos: espacio público como mediación, sistema/mundo de vida como tensión, sociedad civil como puente y desobediencia como presión democrática.</p>
+      </details>
+      <div class="rubrica">
+        <label><input type="radio" name="score16" value="0"> 0 pts<br><small>No respondí / fuera de tema</small></label>
+        <label><input type="radio" name="score16" value="1"> 1 pt<br><small>Idea muy débil</small></label>
+        <label><input type="radio" name="score16" value="2"> 2 pts<br><small>Respuesta básica</small></label>
+        <label><input type="radio" name="score16" value="3"> 3 pts<br><small>Buena respuesta</small></label>
+        <label><input type="radio" name="score16" value="4"> 4 pts<br><small>Excelente desarrollo</small></label>
+      </div>
+      <details class="modelo">
+        <summary>Ver respuesta modelo</summary>
+        <p>El artículo puede sintetizarse como una reconstrucción del espacio público en Habermas. En el primer momento, el espacio público burgués aparece como un ideal de deliberación racional donde personas privadas discuten asuntos comunes. Ese modelo entra en crisis por la despolitización, la propaganda, los medios masivos, los intereses privados y la refeudalización. En el segundo momento, Habermas desplaza su teoría hacia la comunicación: el mundo de la vida se entiende como ámbito de sentido, cultura y relaciones comunicativas, mientras el sistema funciona mediante dinero, poder y burocracia. El problema moderno surge cuando el sistema coloniza el mundo de la vida. Frente a esto, el espacio público aparece como una red comunicativa capaz de detectar problemas, formar opinión pública y transmitirlos al sistema político. La sociedad civil cumple el papel de puente entre experiencias privadas y debate público, mientras la desobediencia civil aparece como medio extraordinario para presionar democráticamente al sistema cuando este se vuelve inerte. La idea de fondo es que la comunicación pública puede tener potencial emancipatorio, aunque el artículo advierte que ese potencial debe analizarse también considerando desigualdades y dominaciones internas.</p>
+      </details>
+    </article>
+    
+
+      <div class="scorebox">
+        <button class="btn primary" onclick="calcularNota()">Calcular nota final</button>
+        <div class="progress"><div class="bar" id="bar"></div></div>
+        <div class="result" id="resultado">Puntaje: 0/60 · Nota: <span class="grade">1,0</span></div>
+        <button class="btn print" onclick="window.print()">Imprimir / guardar PDF</button>
+      </div>
+    </section>
+
+    <section id="respuestas">
+      <div class="card">
+        <div class="tag">Pauta final</div>
+        <h2>Respuestas modelo completas</h2>
+        <p>Esta sección está al final para que no te tientes a mirar antes. Úsala para corregir, mejorar redacción y detectar qué conceptos te faltaron.</p>
+      </div>
+      <div class="answers">
+        
+    <article class="answer-card">
+      <h3>1. Explique cuál es la tesis central del artículo sobre el concepto de espacio público en Habermas.</h3>
+      <p><b>Respuesta modelo:</b> La tesis central es que el concepto de espacio público permite comprender la evolución del pensamiento de Habermas. En un primer momento, asociado al paradigma crítico, el espacio público aparece vinculado a la publicidad burguesa, a la deliberación racional y a la crítica del poder. Sin embargo, ese modelo entra en crisis porque la esfera pública se debilita, se despolitiza y queda atravesada por intereses privados, medios masivos, propaganda y relaciones de poder. En un segundo momento, ligado al paradigma comunicativo, Habermas redefine el espacio público como una red de comunicación enraizada en el mundo de la vida, capaz de transformar problemas sociales en temas políticos y de influir sobre el sistema político mediante la opinión pública, la sociedad civil y, en situaciones de crisis, la desobediencia civil.</p>
+    </article>
+    
+    <article class="answer-card">
+      <h3>2. Defina el espacio público burgués según el primer Habermas y explique por qué era importante.</h3>
+      <p><b>Respuesta modelo:</b> En el primer Habermas, el espacio público burgués es el ámbito donde las personas privadas se reúnen en calidad de público para discutir asuntos comunes. No se trata solamente de que cada individuo exprese su interés particular, sino de que esos intereses sean sometidos a discusión racional. Por eso el espacio público es importante: funciona como condición de posibilidad para una política más racional, porque permite que las decisiones públicas se sometan a crítica, deliberación y justificación. El artículo muestra que Habermas considera este espacio como núcleo político de la Modernidad, aunque también reconoce que su modelo liberal tenía límites históricos y sociales.</p>
+    </article>
+    
+    <article class="answer-card">
+      <h3>3. Explique la relación entre publicidad, racionalidad y democracia en el primer Habermas.</h3>
+      <p><b>Respuesta modelo:</b> En el texto, publicidad significa hacer público aquello que concierne a todos. La publicidad se relaciona con la racionalidad porque permite que los asuntos comunes sean discutidos de manera argumentativa, intersubjetiva y reflexiva. A su vez, esa racionalidad pública se vincula con la democracia porque una sociedad democrática no debería basarse solo en decisiones administrativas o en acuerdos de élite, sino en procesos donde los ciudadanos puedan discutir, problematizar y formar opinión. Por eso la esfera pública tiene una función crítica: permite controlar, cuestionar y orientar el poder político.</p>
+    </article>
+    
+    <article class="answer-card">
+      <h3>4. ¿Qué significa la caída o transformación de la publicidad burguesa?</h3>
+      <p><b>Respuesta modelo:</b> La caída de la publicidad burguesa significa que el espacio público deja de funcionar como instancia crítica de deliberación racional. En vez de depender del consenso de personas que discuten públicamente, las decisiones empiezan a quedar mediadas por compromisos entre intereses privados, expansión estatal, propaganda comercial, competencia partidaria y comunicación masiva. Así, la esfera pública se vuelve menos autónoma, menos crítica y más manipulable. Para el artículo, esto revela una contradicción de la democracia liberal: formalmente existe participación, pero en la práctica muchas decisiones se toman sin incorporar sustantivamente los intereses ciudadanos.</p>
+    </article>
+    
+    <article class="answer-card">
+      <h3>5. Explique el concepto de refeudalización de la esfera pública.</h3>
+      <p><b>Respuesta modelo:</b> La refeudalización de la esfera pública es el proceso mediante el cual la publicidad pierde su función crítica y se convierte en una forma de exhibición del poder. En lugar de un público que debate racionalmente, aparece una ciudadanía reducida a espectadora, llamada a aclamar líderes, partidos o figuras públicas. La política se vuelve espectáculo y la notoriedad pública ya no sirve para controlar críticamente al poder, sino para representar prestigio, imagen y autoridad. El término recuerda al mundo feudal porque el poder busca mostrarse ante el público para obtener reconocimiento, no para someterse a deliberación democrática.</p>
+    </article>
+    
+    <article class="answer-card">
+      <h3>6. Desarrolle las críticas que el artículo recoge contra el modelo de esfera pública burguesa de Habermas.</h3>
+      <p><b>Respuesta modelo:</b> El artículo recoge críticas importantes al modelo de esfera pública burguesa. Una crítica es que Habermas habría centrado demasiado su análisis en la sociabilidad burguesa, dejando en segundo plano otras formas de actividad pública, como movimientos populares, sectores plebeyos, corrientes socialistas o expresiones políticas no insertas en la cultura burguesa. Otra crítica apunta a la exclusión de las mujeres: la esfera pública liberal no fue realmente universal, porque se construyó separando lo público de lo privado y marginando a quienes quedaban asociados al ámbito doméstico. También se critica su visión de los medios, porque Habermas tiende a verlos como causa de pérdida del diálogo cara a cara, mientras autores como Thompson señalan que los medios también crean nuevas formas de intercambio y difusión pública. En conjunto, estas críticas muestran que el ideal de igualdad deliberativa era más limitado de lo que parecía.</p>
+    </article>
+    
+    <article class="answer-card">
+      <h3>7. Explique el cambio de paradigma en Habermas: del trabajo a la comunicación.</h3>
+      <p><b>Respuesta modelo:</b> El cambio de paradigma consiste en que Habermas abandona el paradigma del trabajo, propio de la teoría crítica clásica, y desplaza el centro de su teoría hacia la comunicación. Esto no significa que renuncie a la crítica social ni que abandone la idea de racionalidad, sino que busca una alternativa a la racionalidad instrumental. En lugar de pensar la emancipación solo desde el trabajo o desde un sujeto revolucionario, Habermas la piensa desde la acción comunicativa, es decir, desde la capacidad de los sujetos para entenderse, argumentar, resolver desacuerdos y construir consensos racionales. Este giro permite imaginar un camino menos pesimista para la transformación social.</p>
+    </article>
+    
+    <article class="answer-card">
+      <h3>8. Diferencie racionalidad instrumental y racionalidad comunicativa.</h3>
+      <p><b>Respuesta modelo:</b> La racionalidad instrumental es una forma de razón orientada al control, la eficiencia y el cálculo de medios para alcanzar fines. En el artículo aparece asociada al sistema, al dinero, al poder, a la burocracia, al mercado y a la administración. En cambio, la racionalidad comunicativa se orienta al entendimiento entre sujetos capaces de hablar, escuchar, argumentar y llegar a acuerdos. No busca simplemente vencer al otro ni manipularlo, sino construir consenso mediante razones. Esta diferencia es clave porque Habermas ve en la racionalidad comunicativa una posibilidad emancipatoria frente al dominio de la racionalidad instrumental en las sociedades modernas.</p>
+    </article>
+    
+    <article class="answer-card">
+      <h3>9. Explique la diferencia entre mundo de la vida y sistema.</h3>
+      <p><b>Respuesta modelo:</b> El mundo de la vida es el espacio de las relaciones cotidianas, la cultura, el lenguaje, la socialización, la familia, la escuela, los valores y el entendimiento intersubjetivo. Es donde las personas forman identidad, sentido y vínculos comunicativos. El sistema, en cambio, está compuesto por mecanismos impersonales como dinero, poder, mercado, burocracia, ciencia, técnica y administración. Mientras el mundo de la vida funciona mediante comunicación y sentido compartido, el sistema funciona mediante medios no verbales de coordinación, como el dinero y el poder. La tensión aparece cuando el sistema invade espacios que deberían organizarse mediante comunicación.</p>
+    </article>
+    
+    <article class="answer-card">
+      <h3>10. ¿Qué significa la colonización del mundo de la vida por el sistema?</h3>
+      <p><b>Respuesta modelo:</b> La colonización del mundo de la vida ocurre cuando los imperativos del sistema, especialmente dinero y poder, invaden ámbitos de la vida cotidiana que deberían estar orientados por la comunicación y el entendimiento. Esto produce una sustitución de la acción comunicativa por mecanismos instrumentales: las relaciones humanas se monetarizan, las decisiones se burocratizan y la vida social se organiza cada vez más por lógicas de control. Para el artículo, esta colonización es el diagnóstico central de Habermas sobre las patologías de la modernidad, porque restringe la comunicación, despolitiza a los ciudadanos y debilita la posibilidad de participación democrática sustantiva.</p>
+    </article>
+    
+    <article class="answer-card">
+      <h3>11. Explique cómo redefine Habermas el espacio público en Facticidad y validez.</h3>
+      <p><b>Respuesta modelo:</b> En Facticidad y validez, Habermas redefine el espacio público ya no como un simple espacio burgués de discusión cara a cara, sino como una estructura comunicativa enraizada en el mundo de la vida. El artículo destaca que funciona como una caja de resonancia para problemas que deben ser elaborados por el sistema político y como un sistema de avisos con sensores no especializados. Esto significa que el espacio público detecta problemas sociales, los tematiza, los vuelve discutibles y los transforma en opinión pública. No decide directamente como una institución estatal, pero puede influir en el sistema político mediante la formación de legitimidad.</p>
+    </article>
+    
+    <article class="answer-card">
+      <h3>12. Analice el papel de la opinión pública en el segundo Habermas.</h3>
+      <p><b>Respuesta modelo:</b> En el segundo Habermas, la opinión pública cumple un papel político fundamental porque transforma comunicaciones dispersas en posturas colectivas sobre temas relevantes. Su importancia no está solo en que muchas personas opinen, sino en la forma en que esas opiniones se producen: deben surgir de prácticas de comunicación pública, controversias más o menos racionales y procesos discursivos. Su calidad depende de cuánto esté afectada por relaciones de poder que bloquean discusiones fecundas. La opinión pública no reemplaza al gobierno ni al parlamento, pero puede influir en elecciones, tribunales, gobiernos y parlamentos. Por eso posee un potencial político: puede suministrar o retirar legitimidad al poder institucional.</p>
+    </article>
+    
+    <article class="answer-card">
+      <h3>13. Explique el papel de la sociedad civil y sus límites según el artículo.</h3>
+      <p><b>Respuesta modelo:</b> La sociedad civil aparece como una trama de asociaciones, organizaciones y movimientos que surgen de manera más o menos espontánea desde la vida cotidiana. Su papel es recoger la resonancia que los problemas sociales generan en la vida privada y transmitirla al espacio de la opinión pública. Es decir, convierte experiencias individuales o sectoriales en temas de interés general. Sin embargo, el artículo también subraya sus límites: la sociedad civil puede influir, pero no ejercer poder político directamente; para que su influencia tenga efectos institucionales debe llegar a estructuras democráticas y adoptar formas autorizadas. Por eso no reemplaza al Estado, sino que presiona, orienta y legitima o deslegitima decisiones.</p>
+    </article>
+    
+    <article class="answer-card">
+      <h3>14. Explique qué es la desobediencia civil en el segundo Habermas y por qué tiene valor democrático.</h3>
+      <p><b>Respuesta modelo:</b> La desobediencia civil es presentada como una forma extraordinaria de acción política propia de la sociedad civil cuando se percibe una situación de crisis. No se entiende como simple desorden ni como rechazo absoluto a la democracia, sino como una apelación a la legitimidad democrática frente a la inercia del sistema político. Su valor está en que permite actualizar los contenidos normativos del Estado democrático de derecho en el espacio de la opinión pública. Mediante ella, la sociedad civil moviliza a la opinión pública, presiona al sistema político y refuerza el vínculo entre sociedad civil y sociedad política. En ese sentido, busca superar prácticamente la tensión entre facticidad y validez.</p>
+    </article>
+    
+    <article class="answer-card">
+      <h3>15. Explique la conclusión crítica del artículo frente a Habermas.</h3>
+      <p><b>Respuesta modelo:</b> La conclusión crítica del artículo reconoce el valor emancipatorio de la propuesta habermasiana, especialmente su forma de pensar el espacio público, la sociedad civil, la opinión pública y la desobediencia civil como vías para presionar democráticamente al sistema político. Sin embargo, la autora deja abiertas preguntas importantes. Una de ellas es si la publicidad puede entenderse solo como un espacio de tematización racional de crisis o si también está atravesada por desigualdades más profundas. Otra pregunta es si el mundo de la vida debe verse únicamente como reserva de comunicación y emancipación, o si también produce jerarquías internas, exclusiones y formas de dominación vinculadas a condiciones subalternas. Por eso el artículo no rechaza a Habermas, pero sí exige complejizar su teoría.</p>
+    </article>
+    
+    <article class="answer-card">
+      <h3>16. Construya una síntesis general del artículo relacionando espacio público, sistema, mundo de la vida, sociedad civil y desobediencia civil.</h3>
+      <p><b>Respuesta modelo:</b> El artículo puede sintetizarse como una reconstrucción del espacio público en Habermas. En el primer momento, el espacio público burgués aparece como un ideal de deliberación racional donde personas privadas discuten asuntos comunes. Ese modelo entra en crisis por la despolitización, la propaganda, los medios masivos, los intereses privados y la refeudalización. En el segundo momento, Habermas desplaza su teoría hacia la comunicación: el mundo de la vida se entiende como ámbito de sentido, cultura y relaciones comunicativas, mientras el sistema funciona mediante dinero, poder y burocracia. El problema moderno surge cuando el sistema coloniza el mundo de la vida. Frente a esto, el espacio público aparece como una red comunicativa capaz de detectar problemas, formar opinión pública y transmitirlos al sistema político. La sociedad civil cumple el papel de puente entre experiencias privadas y debate público, mientras la desobediencia civil aparece como medio extraordinario para presionar democráticamente al sistema cuando este se vuelve inerte. La idea de fondo es que la comunicación pública puede tener potencial emancipatorio, aunque el artículo advierte que ese potencial debe analizarse también considerando desigualdades y dominaciones internas.</p>
+    </article>
+    
+      </div>
+    </section>
+
+    <section>
+      <div class="card good">
+        <h2>Último repaso en 60 segundos</h2>
+        <p>Si solo puedes recordar una idea, que sea esta: <b>Habermas pasa de pensar el espacio público como ideal burgués de deliberación crítica a pensarlo como red comunicativa enraizada en el mundo de la vida, capaz de transformar problemas sociales en opinión pública e influir en el sistema político.</b></p>
+        <p>El conflicto de fondo es <b>mundo de la vida versus sistema</b>. La esperanza democrática está en la <b>acción comunicativa</b>, la <b>sociedad civil</b>, la <b>opinión pública</b> y, en situaciones de crisis, la <b>desobediencia civil</b>.</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      Sitio de estudio basado únicamente en “La concepción de espacio público antes y después del cambio de paradigma: desobediencia civil y racionalidad en el segundo Habermas”.
+    </footer>
+  </main>
+
+  <script>
+    const totalPreguntas = 15;
+    const maxPts = 60;
+
+    function calcularNota(){
+      let pts = 0;
+      let respondidas = 0;
+      for(let i=1;i<=totalPreguntas;i++){
+        const selected = document.querySelector('input[name="score'+i+'"]:checked');
+        if(selected){
+          pts += Number(selected.value);
+          respondidas++;
+        }
+      }
+      const nota = (1 + (pts / maxPts) * 6).toFixed(1).replace('.', ',');
+      const pct = Math.round((pts / maxPts) * 100);
+      document.getElementById('bar').style.width = pct + '%';
+
+      let nivel = "";
+      if(pts >= 54) nivel = "Excelente: dominio muy alto. Vas fuerte.";
+      else if(pts >= 45) nivel = "Bien: hay base sólida, pero puedes pulir desarrollo.";
+      else if(pts >= 36) nivel = "Suficiente: repasa conceptos débiles antes de la prueba.";
+      else if(pts >= 24) nivel = "Riesgo: necesitas volver al resumen y rehacer respuestas.";
+      else nivel = "Bajo: parte de nuevo por conceptos clave y mapa mental.";
+
+      document.getElementById('resultado').innerHTML =
+        'Puntaje: ' + pts + '/60 · Nota: <span class="grade">' + nota + '</span><br><small>' +
+        respondidas + '/15 preguntas evaluadas · ' + nivel + '</small>';
+    }
+
+    document.querySelectorAll('input[type="radio"]').forEach(r => {
+      r.addEventListener('change', calcularNota);
+    });
+  </script>
+</body>
+</html>
